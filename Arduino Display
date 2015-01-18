@@ -60,58 +60,19 @@ void loop() {
   // read the value from the sensor:
   lcd.clear();
   sensorValue = analogRead(sensorPin);
-  delay(sensorValue);  
-  delay(sensorValue);  
+  delay(1000);   
   // stop the program for <sensorValue> milliseconds: 
   lcd.print("Status:");
       lcd.setCursor(0, 1);
       if (sensorValue < 239);{
          lcd.print("Line Secure");
+         delay(5000);
       }
       if (sensorValue > 240){
         lcd.clear();
         lcd.print("Status:");
         lcd.setCursor(0, 1);
         lcd.print("Line Unsecure");
+        delay(5000);
       }
-  
-  if (buttons) {
-    lcd.clear();
-    lcd.setCursor(0,0);
-    if (buttons & BUTTON_UP) {
-      lcd.print("Status:");
-      lcd.setCursor(0, 1);
-      if (sensorValue < 239);{
-         lcd.print("Line Secure");
-      }
-      if (sensorValue > 240){
-        lcd.clear();
-        lcd.print("Status:");
-        lcd.setCursor(0, 1);
-        lcd.print("Line Unsecure");
-      }
-    }
-    if (buttons & BUTTON_DOWN) {
-      lcd.print("Status:");
-      lcd.setCursor(0, 1);
-      lcd.print(sensorValue);
-
-      
-    }
-    if (buttons & BUTTON_LEFT) {
-      lcd.print("");
-
-    }
-    if (buttons & BUTTON_RIGHT) {
-      lcd.print("" );
-
-    }
-    if (buttons & BUTTON_SELECT) {
-      lcd.print("");
-    }
-      if (millis() > 5000){
-      wdt_enable(WDTO_30MS);
-      while(1) {};
-      }
-  }
 }
